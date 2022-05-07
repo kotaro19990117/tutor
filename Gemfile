@@ -77,4 +77,6 @@ group :production do
   gem 'pg'
 end
 
-gem 'net-smtp'
+gem 'net-smtp', require: false
+gem 'net-imap'
+gem 'net-pop'

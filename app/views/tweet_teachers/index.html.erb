@@ -1,0 +1,18 @@
+
+
+<h2><%= @teacher.name %>先生の予定表</h2>
+
+<%= link_to 'スケジュールを書く', new_schedule_path(:teacher_id => current_teacher.id) %>
+
+<%= month_calendar events: @schedules do |date, schedule| %>
+  <%= date.day %>
+  <% schedule.each do |s| %>
+    <div>
+      <%= Student.find(s.student_id).name %>
+      <%= link_to s.content, schedule_path(s.id) %>
+    </div>
+  <% end %>
+<% end %>
+
+
+

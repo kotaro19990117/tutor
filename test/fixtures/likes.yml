@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tweet_student: one
+  teacher: one
+
+two:
+  tweet_student: two
+  teacher: two

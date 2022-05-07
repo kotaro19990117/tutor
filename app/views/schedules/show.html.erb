@@ -1,0 +1,15 @@
+<div class="student">
+    <% student = Student.find(@schedule.student_id) %>
+    <%= student.name %>
+</div>
+
+<div class="content">
+    <%= @schedule.content %>
+</div>
+
+<div class="time">
+    <%= @schedule.start_time %>
+</div>
+
+<%= link_to "編集する", edit_schedule_path(@schedule.id, :teacher_id => current_teacher.id) %>
+<%= link_to "削除", schedule_path(@schedule.id), method: :delete %>

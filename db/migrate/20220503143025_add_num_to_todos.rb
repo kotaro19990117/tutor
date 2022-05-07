@@ -1,0 +1,5 @@
+class AddNumToTodos < ActiveRecord::Migration[6.1]
+  def change
+    add_column :todos, :num, :integer
+  end
+end

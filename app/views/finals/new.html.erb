@@ -1,0 +1,11 @@
+<h3>最終目標設定</h3>
+
+<%= form_with model: @final do |f| %>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_field :body, :size => 140 %>
+    <%= f.hidden_field :student_id, :value => @student.id %>
+  </div>
+  <%= f.submit "最終目標設定" %>
+<% end %>
+<%= link_to "進捗に戻る", tweet_teacher_path(@student.id) %>

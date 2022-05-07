@@ -1,0 +1,12 @@
+<h2>マイページ</h2>
+<div class="chat-container">
+    <%=  image_tag @teacher.image_url, class: 'image' if @teacher.image.present? %>
+    <h3>名前 : <%= @teacher.name %></h3>
+    <h3>メールアドレス : <%= @teacher.email %></h3>
+    <h3>プロフィール : <%= @teacher.profile %></h3>
+    <h3>teacher_id : <%= @teacher.id %></h3>
+    <%= link_to "編集する", edit_teacher_registration_path %>
+</div>
+
+
+

@@ -1,0 +1,8 @@
+<h2>マイページ</h2>
+<div class="chat-container">
+    <%=  image_tag @student.image_url, class: 'image' if @student.image.present? %>
+    <h3>名前 :<%= @student.name %></h3>
+    <h3>メールアドレス :<%= @student.email %></h3>
+    <h3>プロフィール :<%= @student.profile %></h3>
+    <%= link_to "マイページ編集",  edit_student_registration_path %>
+</div>

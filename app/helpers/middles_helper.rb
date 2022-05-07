@@ -1,0 +1,2 @@
+module MiddlesHelper
+end

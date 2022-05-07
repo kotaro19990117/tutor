@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'conversations', :media => "all" %>
+
+
+<div class="chat-container">
+    <% if teacher_signed_in? %>
+        <h3><%= @student.name %>とのチャットルーム</h3>
+        <div class="chat-field">
+            <% @messages.each do |m| %>
+                <% if m.is_teacher %>
+                    <div class="right-message">
+                        <%= m.body %>
+                    </div>
+                <% else %>
+                    <div class="left-message">
+                        <%= m.body %>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    <% elsif student_signed_in?%>
+        <h3><%= @teacher.name %>先生とのチャットルーム</h3>
+        <div class="chat-field">
+            <% @messages.each do |m| %>
+                <% if m.is_teacher %>
+                    <div class="left-message">
+                        <%= m.body %>
+                    </div>
+                <% else %>
+                    <div class="right-message">
+                        <%= m.body %>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+    <%= form_with url: conversation_messages_path(@conversation) do |f| %>
+        <%= f.text_field :body %>
+        <%= f.hidden_field :conversation_id, :value => @conversation.id %>
+        <%= f.submit "メッセージを送る"%>
+    <% end %>
+</div>

@@ -1,0 +1,23 @@
+// Place all the styles related to the conversations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.chat-container{
+    width: 50%;
+    margin: 10px auto;
+    flex-flow: column;
+}
+
+h3{
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.left-message{
+    text-align: left;
+  }
+  
+.right-message{
+    text-align: right;
+  }

@@ -1,0 +1,11 @@
+<h3>科目</h3>
+
+<%= form_with model: @todo do |t| %>
+  <div class="field">
+    <%= t.label :body %>
+    <%= t.text_field :body, :size => 140 %>
+    <%= t.hidden_field :student_id, :value => @student.id %>
+    <%= t.hidden_field :num, :value => @todo.num %>
+  </div>
+  <%= t.submit "科目設定" %>
+<% end %>

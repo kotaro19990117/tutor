@@ -1,0 +1,10 @@
+<h3>中間目標設定</h3>
+
+<%= form_for @middle do |m| %>
+  <div class="field">
+    <%= m.label :body %>
+    <%= m.text_field :body, :size => 140 %>
+    <%= m.hidden_field :student_id, :value => @student.id %>
+  </div>
+  <%= m.submit "中間目標設定" %>
+<% end %>

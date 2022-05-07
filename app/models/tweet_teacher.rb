@@ -1,0 +1,3 @@
+class TweetTeacher < ApplicationRecord
+    
+end

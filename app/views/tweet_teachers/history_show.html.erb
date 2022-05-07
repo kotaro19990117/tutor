@@ -1,0 +1,49 @@
+<% @middles.each do |m| %>
+    <%= link_to m.body, history_show_tweet_teacher_path(m.id, :student_id => @student.id) %>
+<% end %>
+
+<%= link_to "履歴削除", physical_destroy_tweet_teachers_path( :middle_id => @middle.id, :student_id => @student.id ), method: :patch %>
+
+<div class="container">
+    <div class="row">
+        <% i=1 %>
+        <% while i < 6 %>
+            <div class="col-xs-6 col-sm-4">
+                <div class="box">
+                    <div class="subject">
+                        <% s = @subjects.where(num:i).last %>
+                        <% if s.present? %>
+                            <%= s.body %>
+                        <% end %>
+                    </div>
+                    <div class="tweets">
+                        <% tweet_students = @tweet_students.with_deleted.where(num:i).order(id: :DESC) %>
+                        <% tweet_students.each do |t| %>
+                            <div class = "tweet">
+                                <div class="field">
+                                    <%= t.body %>
+                                </div>
+                                <div class="field">
+                                    <%= t.notget %>
+                                </div>
+                                <div class="field">
+                                    <%=  image_tag t.image_url, class: 'image' if t.image? %>
+                                </div>
+                                <div class="field">
+                                    <%= t.achivement %>
+                                </div>
+                                <div class="field">
+                                    <%= l t.created_at, format: :short %>
+                                </div>
+                                <div class="field">
+                                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <% i=i+1 %>
+            </div>
+        <% end %>
+    </div>
+</div>

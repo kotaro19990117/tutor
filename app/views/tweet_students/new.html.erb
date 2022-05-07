@@ -1,0 +1,28 @@
+<h1> Tutor </h1>
+<h3> 進捗投稿画面 </h3>
+<%= form_with model: @tweet_students do |f| %>
+    <div class = "field" >
+        <%= f.label :進捗どうだった？ %>
+        <%= f.text_field :body, :size =>140 %>
+    </div>
+
+    <div class="field">
+        <%= f.label :わからなかったところは？ %>
+        <%= f.text_field :notget, :size =>140 %>
+    </div>
+
+    <div class="field">
+        <%= f.label :画像添付 %>
+        <%= f.file_field :image %>
+    </div>
+
+    <div class="field">
+        <%= f.label :達成度 %>
+        <%= f.select :achivement, ['0','10','20','30','40','50','60','70','80','90','100'], {include_blank: '選択する'} %>
+    </div>
+
+    <%= f.hidden_field :num, :value => @tweet_students.num %>
+    <%= f.hidden_field :middle_id, :value => @middle.id %>
+
+    <%= f.submit "投稿する" %>
+<% end %>

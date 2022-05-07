@@ -1,0 +1,104 @@
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
+<h2><%= @teacher.name %>先生</h2>
+<h3><%= @student.name %>の進捗</h3>
+
+<div class="goal">
+  <% if Conversation.where(teacher_id: current_teacher.id).where(student_id: @student.id).exists? %>
+    <br>
+    <%= link_to "チャットへ", conversation_path(current_teacher.conversations.find_by(student_id: @student.id)) %><br>
+  <% else %>
+    <%= form_for Conversation.new do |f| %>
+      <%= f.hidden_field :student_id, :value => @student.id %>
+      <%= f.submit %>
+    <% end %>
+  <% end %>
+  <%= link_to "最終目標を設定する", new_final_path( :student_id => @student.id) %>
+  <div class="final-container">
+      <div class="final">
+        <% if @final.present? %>
+          <%= @final.body %>
+        <% end %>
+      </div>
+  </div>
+  <%= link_to "中間目標を設定する", new_middle_path( :student_id => @student.id) %>
+  <div class="middle-container">
+      <div class="middle">
+        <% if @middle.present? %>
+          <%= @middle.body %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<%= button_to "全部削除", all_destroy_tweet_teachers_path(@student.id), method: :patch %>
+<%= link_to "履歴", history_index_tweet_teachers_path(@student.id) %>
+
+
+<div class="container">
+  <div class="row">
+    <% i=1 %>
+    <% while i < 6 %>
+      <div class="col-xs-6 col-sm-4">
+        <div class="box">
+          <div class="subject bg-light text-dark">
+            <%= link_to "科目を設定する", new_subject_path( :student_id => @student.id, :num => i) %>
+            <% s = @subjects.where(num:i).last %>
+            <% if s.present? %>
+              <%= s.body %>
+            <% end %>
+          </div>
+          <div class="todo">
+            <%= link_to "Todoを設定する", new_todo_path( :student_id => @student.id, :num => i) %>
+            <% t = @todos.where(num:i).last %>
+              <% if t.present? %>
+                <%= t.body %>
+              <% end %>
+          </div>
+          <div class="tweets">
+            <% tweet_students_data = @tweet_students.where(num:i).order(id: :DESC) %>
+            <div class="overflow-auto" style="width:300px; height:400px;">
+              <div class="tweet">
+                <% tweet_students_data.each do |t| %>
+                  <div class="field">
+                    <%= t.body %>
+                  </div>
+                  <div class="field">
+                      <%= t.notget %>
+                  </div>
+                  <div class="field">
+                      <%=  image_tag t.image_url, class: 'image' if t.image? %>
+                  </div>
+                  <div class="field">
+                      <%= t.achivement %>
+                  </div>
+                  <div class="field">
+                    <%= l t.created_at, format: :short %>
+                  </div>
+                  <div class="field">
+                    <% if current_teacher.already_liked?(t) %>
+                      <%= link_to tweet_student_like_path(id: t.id, tweet_student_id: t.id), method: :delete do %>
+                        <i class="fas fa-heart"></i><%= t.likes.count %>
+                      <% end %>
+                    <% else %>
+                        <%= link_to tweet_student_likes_path(id: t.id, tweet_student_id: t.id), method: :post do %>
+                          <i class="fas fa-heart"></i><%= t.likes.count %>
+                        <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="graph">
+            <% subject = @subjects.where(num:i) %>
+            <% subject.each do |s| %>
+              <%= line_chart [ {name: s.body, data: @tweet_students.where(num:i).map{|t| t.slice(:created_at, :achivement).values} }] %>
+            <% end %>
+          </div>
+        </div>
+      <% i=i+1 %>
+      </div>
+    <% end %>
+  </div>
+</div>

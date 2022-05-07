@@ -1,0 +1,12 @@
+<h3>科目</h3>
+
+<%= form_with model: @subject do |s| %>
+  <div class="field">
+    <%= s.label :body %>
+    <%= s.text_field :body, :size => 140 %>
+    <%= s.hidden_field :student_id, :value => @student.id %>
+    <%= s.hidden_field :num, :value => @subject.num %>
+  </div>
+  <%= s.submit "科目設定" %>
+<% end %>
+<%= link_to "進捗に戻る", tweet_teacher_path(@student.id) %>

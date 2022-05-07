@@ -1,0 +1,12 @@
+<% if student_signed_in? %>
+    <li><%= button_to 'ログアウト', destroy_student_session_path, method: :delete %></li>
+    <li><%= link_to "index student", tweet_students_path %></li>
+<% elsif teacher_signed_in? %>
+    <li><%= button_to 'ログアウト', destroy_teacher_session_path, method: :delete %></li>
+    <li><%= link_to "index teacher", tweet_teachers_path %></li>
+<% else %>
+    <li><%= link_to "新規登録student", new_student_registration_path %></li>
+    <li><%= link_to "新規登録teacher", new_teacher_registration_path %></li>
+    <li><%= link_to "ログインstudent", new_student_session_path %></li>
+    <li><%= link_to "ログインteacher", new_teacher_session_path %></li>
+<% end %>

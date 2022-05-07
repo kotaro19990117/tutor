@@ -1,0 +1,52 @@
+// .container{
+//     width: 50%;
+//     margin: 10px auto;
+//     display: flex;
+// }
+
+h2{
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+
+h3{
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.goal{
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.final{
+    color: red;
+}
+.middle{
+    color: red;
+}
+
+
+.tweet{
+    border-top: solid #00acee;
+    margin-top: 10px;
+    padding-top: 20px;
+    justify-content: space-between;
+    display: flex;    
+    flex-flow: column;
+}
+
+.box{
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+}
+
+// .time{
+//     display: flex;
+//     justify-content: flex-end;
+// }

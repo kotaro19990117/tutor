@@ -1,0 +1,25 @@
+<%= form_with(model: @schedule, local: true) do |s| %>
+    
+    <div class="student">
+        <%= s.label :生徒 %>
+        <%= s.select :student_id, @students.all.map { |student| [student.name, student.id] },{include_blank: '選択ボックス'}%>
+    </div>
+
+
+    <div class="content">
+        <%= s.label :予定 %>
+        <%= s.text_field :content %>
+    </div>
+
+    <div class="time">
+        <%= s.label :start_time %>
+        <%= s.date_field :start_time %>
+    </div>
+
+    <%= s.hidden_field :teacher_id, :value => @schedule.teacher_id %>
+    <div class="submit">
+        <%= s.submit %>
+    </div>
+
+<% end %>
+

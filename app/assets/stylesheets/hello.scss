@@ -1,3 +1,47 @@
-// Place all the styles related to the hello controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+main.page-container-top{
+    margin-top: 100px;
+}
+
+section.top-mainv{
+    border-left-color: rgb(61, 57, 57);
+    border-left-width: 0px;
+    border-right-color: rgb(61, 57, 57);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 400;
+    justify-content: space-between;
+    line-height: 12px;
+    text-size-adjust: 100%;
+    vertical-align: baseline;
+    letter-spacing: normal;
+    
+}
+
+.top-mainv-txt{
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 5%;
+}
+.lead{
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: left;
+}
+.top-mainv-scroll{
+    bottom: -30px;
+    left: 50%;
+    // position: absolute;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.top-recommend{
+    margin-top: 60px;
+}

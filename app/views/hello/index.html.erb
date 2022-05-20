@@ -1,12 +1,253 @@
-<% if student_signed_in? %>
-    <li><%= button_to 'ログアウト', destroy_student_session_path, method: :delete %></li>
-    <li><%= link_to "index student", tweet_students_path %></li>
-<% elsif teacher_signed_in? %>
-    <li><%= button_to 'ログアウト', destroy_teacher_session_path, method: :delete %></li>
-    <li><%= link_to "index teacher", tweet_teachers_path %></li>
-<% else %>
-    <li><%= link_to "新規登録student", new_student_registration_path %></li>
-    <li><%= link_to "新規登録teacher", new_teacher_registration_path %></li>
-    <li><%= link_to "ログインstudent", new_student_session_path %></li>
-    <li><%= link_to "ログインteacher", new_teacher_session_path %></li>
-<% end %>
+<%= stylesheet_link_tag "hello", :media => "all" %>
+
+<div class="loading"></div>
+<div class="tutor">
+    <div class="header-contaner"></div>
+
+    <!-- page-container -->
+    <main class="page-container-top">
+
+        <section class="top-mainv">
+            <div class="top-mainv-txt">
+                <h1>先生と生徒の架け橋に</h1>
+                <p class="lead">
+                    家庭教師の先生と生徒を繋ぐ進捗管理サービス
+                    <br>
+                    授業進行はこれにお任せ
+                </p>
+                <ul>
+                    <li>利用料金無料</li>
+                    <li>PC,スマートフォン対応</li>
+                </ul>
+                <div class="btn-area">
+                <%= link_to "生徒新規登録", new_student_registration_path, {class: "common-btn"}  %>
+                <%= link_to "先生新規登録", new_teacher_registration_path, {class: "common-btn"}  %>
+                </div>
+            </div>
+            <div id="kv-anime"></div>
+            <div class="top-mainv-scroll">
+                <span></span>
+                <p>SCROLL</p>
+            </div>
+        </section>
+
+        <section class="top-recommend">
+            <h2 class="top-recommend-ttl">
+            <span>こんな方におすすめです</span>
+            </h2>
+            <ul class="top-recommend-list">
+            <li>生徒の分からない問題がわからない方</li>
+            <li>生徒が本当に宿題をしているか不安な方</li>
+            <li>次授業までにやるべきToDoの提示がめんどくさい方</li>
+            </ul>
+        </section>
+
+        <section class="top-steps">
+            <div class="inner">
+                <div class="top-common-ttl">
+                    <h2 class="move-up-txt">使い方</h2>
+                    <p class="move-up-txt">
+                        利用料金無料。
+                        <br>
+                        たったこれだけで生徒を一元で管理できます。
+                    </p>
+                </div>
+                <div class="list-block">
+                    <ul class="top-steps-list move-up-obj">
+                        <li>
+                            <p>01</p>
+                            <figure></figure>
+                            <h3>登録</h3>
+                        </li>
+                        <li>
+                            <p>02</p>
+                            <figure></figure>
+                            <h3>目標設定</h3>
+                        </li>
+                        <li>
+                            <p>03</p>
+                            <figure></figure>
+                            <h3>進捗管理</h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="top-why">
+            <div class="top-common-ttl">
+                <h2 class="move-up-txt">
+                    <strong>
+                        <span>Tutor</span>
+                        が良い
+                    </strong>
+                        、
+                    <br class="sp-visible">
+                    その理由
+                </h2>
+            </div>
+            <ul class="top-why-list">
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            家庭教師の<strong>ノウハウ、</strong>
+                            <br>
+                            つめこみました
+                        </h3>
+                        <p>家庭教師の"プロ"がサービスを開発。</p>
+                        <p>シンプルに使いやすさにこだわった自信作です。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            <strong>目標</strong>を掲げて、
+                            <br>
+                            やる気アップ
+                        </h3>
+                        <p>人生の最終・中間目標を設定。</p>
+                        <p>モチベーションを高め勉強意欲を引き出します。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            <strong>科目ごとに</strong>
+                            <br>
+                            進捗管理
+                        </h3>
+                        <p>担当科目ごとにToDoと進捗がわかるので、</p>
+                        <p>とにかく見やすい。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            <strong>グラフで</strong>
+                            <br>
+                            進捗管理
+                        </h3>
+                        <p>達成度がグラフで見れる。</p>
+                        <p>生徒の生活に合わせた課題スケジュールの作成のお手伝い。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            <strong>科目ごとに</strong>
+                            <br>
+                            進捗管理
+                        </h3>
+                        <p>担当科目ごとにToDoと進捗がわかるので、</p>
+                        <p>とにかく見やすい。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            生徒を<strong>一元管理</strong>
+                        </h3>
+                        <p>担当生徒ごとに一つの部屋が作られる。</p>
+                        <p>複数人の生徒を一元で管理できる。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            <strong>カレンダーで</strong>
+                            <br>
+                            スケジュール調整
+                        </h3>
+                        <p>授業予定だけでなく、模試やテストなどを</p>
+                        <p>生徒ごとに予定を作成。</p>
+                        <p>もちろん生徒カレンダーにも反映される。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+                <li class="move-up-txt">
+                    <div class="txt">
+                        <h3>
+                            授業関連の話は
+                            <br>
+                            <strong>チャットで</strong>
+                        </h3>
+                        <p>チャットで生徒とコミュニケーション。</p>
+                        <p>家庭教師に関わることはこのサービス一つで。</p>
+                    </div>
+                    <figure></figure>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="top-entrust">
+            <div class="top-common-ttl">
+                <h2 class="move-up-txt">
+                    家庭教師のことは、
+                    <br class="sp-visible">
+                    <span>Tutor</span>
+                    に
+                    <strong>おまかせ</strong>
+                </h2>
+                <p class="move-up-txt">
+                生徒の進捗管理のお手伝いをさせていただくことで、
+                <br>
+                あなたの家庭教師ライフをもっと簡単に
+                <br>
+                もっと楽しくなる機能を提供します。
+                </p>
+            </div>
+            <div class="top-entrust-block">
+                <h3 class="top_entrust-block-ttl move-up-txt">
+                    Tutorで
+                    <strong>やりたいこと</strong>
+                </h3>
+                <ul class="howto-slider move-up-obj">
+                    <div>
+                        <li class="slide">
+                            <h4>今までは</h4>
+                            <figure></figure>
+                            <p>うまく授業ができない</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="slide">
+                            <h4>これからは</h4>
+                            <figure></figure>
+                            <p>できたこと。分からないことが事前にわかり</p>
+                            <br>
+                            <p>授業がスムーズに。</p>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="slide">
+                            <h4>さらに</h4>
+                            <figure></figure>
+                            <p>生徒も安心して勉強できる</p>
+                        </li>
+                    </div>
+                </ul>
+            </li>
+        </section>
+    </main>
+    <!-- page-container -->
+
+    <div class="fotter-container">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+
+
+
+</div>

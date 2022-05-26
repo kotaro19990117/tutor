@@ -9,7 +9,7 @@ section.top-mainv{
     border-right-color: rgb(61, 57, 57);
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-size: 12px;
     font-weight: 400;
     justify-content: space-between;
@@ -17,15 +17,25 @@ section.top-mainv{
     text-size-adjust: 100%;
     vertical-align: baseline;
     letter-spacing: normal;
+    background-color: white;
     
 }
 
 .top-mainv-txt{
+    display: flex;
+    flex-direction: column;
     font-size: 12px;
     font-weight: 700;
     text-align: left;
     padding-left: 5%;
+    width: 100%;
+    height: 100%;
 }
+.top-image{
+    width: 50%;
+    height: 50%;
+}
+
 .lead{
     display: block;
     font-size: 12px;
@@ -34,14 +44,256 @@ section.top-mainv{
     margin-top: 2%;
     text-align: left;
 }
-.top-mainv-scroll{
-    bottom: -30px;
+.scrolldown2{
+    bottom: 10px;
     left: 50%;
     // position: absolute;
     text-align: center;
     white-space: nowrap;
+    position:absolute;
 }
 
-.top-recommend{
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+    /*描画位置*/
+  position: absolute;
+  left:10px;
+  bottom:10px;
+    /*テキストの形状*/
+  color: rgb(0, 169, 224);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom:0;
+    left:-4px;
+    /*丸の形状*/
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background:rgb(0, 169, 224);
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+  animation:
+    circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+      0%{bottom:45px;}
+     100%{bottom:-5px;}
+ }
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+      0%{opacity:0}
+     50%{opacity:1;}
+    80%{opacity:0.9;}
+  100%{opacity:0;}
+ }
+
+/* 線の描写 */
+.scrolldown2:after{
+  content:"";
+    /*描画位置*/
+  position: absolute;
+  bottom:0;
+  left:0;
+    /*線の形状*/
+  width:2px;
+  height: 50px;
+  background:rgb(0, 169, 224);
+}
+
+
+section.top-recommend{
     margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: white;
+
+}
+
+.top-recommend-ttl{
+    margin-top: 0px;
+    margin-bottom: 60px;
+    text-align: center;
+    font-size: 36px;
+    background-color: white;
+    
+}
+
+.top-recommend-list{
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+    list-style: none;
+    font-size: 16px;
+}
+
+section.top-steps{
+    background-color: rgb(201, 228, 241);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.inner{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.top-common-ttl{
+    text-align: center;
+}
+
+.list-block{
+    margin-top: 50px;
+
+}
+
+.top-steps-list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.top-steps-list-col{
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
+}
+
+section.top-why{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 100px;
+    background-color: white;
+}
+
+.top-common-ttl strong{
+    background-color: rgb(201, 228, 241);
+}
+
+.top-why-list{
+    list-style-type: none;
+    margin-bottom: 0%;
+}
+
+.top-why-list-col{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
+}
+
+section.top-entrust{
+    margin-top: 200px;
+}
+
+.top-common-ttl{
+    margin-bottom: 50px;
+}
+
+.top-common-ttl span{
+    font-weight: 700;
+}
+
+.top-entrust-block{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.top-entrust-block-ttl strong{
+    color:rgb(0, 169, 224)
+}
+
+.howto-list{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    justify-content: space-between;
+    margin-top: 40px;
+
+}
+
+.howto-list-col{
+    width: 50%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: center;
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
 }

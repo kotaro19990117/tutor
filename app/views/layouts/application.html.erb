@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-20/css/5-1-20.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-1-2/css/9-1-2.css">
+    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/css/5-10.css">
   </head>
 
   <body>
@@ -19,7 +21,7 @@
       <div class="header-list">
 
         <% if teacher_signed_in? %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light white">
             <a class="navbar-brand" href="/hello/index">Tutor</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
@@ -63,7 +65,7 @@
           <div class="circle-bg"></div>
 
         <% elsif student_signed_in? %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light white">
             <a class="navbar-brand" href="/hello/index">Tutor</a>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
@@ -101,16 +103,10 @@
             </nav>
           <div class="circle-bg"></div>
         <% else %>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-light white">
             <a class="navbar-brand" href="/hello/index">Tutor</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">活用方法</a>
-                </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     新規登録
@@ -136,7 +132,6 @@
             <nav id="g-nav">
               <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
                 <ul>
-                  <li><a class="nav-link" href="#">活用方法</a></li>  
                   <li><%= link_to "生徒ログイン", new_student_registration_path  %></li>  
                   <li><%= link_to "先生ログイン", new_teacher_registration_path %></li> 
                   <li><%= link_to "生徒登録", new_student_session_path %></li>

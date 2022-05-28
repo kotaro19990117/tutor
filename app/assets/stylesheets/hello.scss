@@ -1,6 +1,6 @@
 
 main.page-container-top{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 section.top-mainv{
@@ -10,14 +10,17 @@ section.top-mainv{
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
     justify-content: space-between;
-    line-height: 12px;
+    line-height: 16px;
     text-size-adjust: 100%;
     vertical-align: baseline;
     letter-spacing: normal;
     background-color: white;
+    height: 450px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
     
 }
 
@@ -31,14 +34,29 @@ section.top-mainv{
     width: 100%;
     height: 100%;
 }
-.top-image{
-    width: 50%;
-    height: 50%;
+
+.top-mainv-txt h1{
+    color: rgb(26, 25, 25);
+    position: relative;
+    top: 0%; 
+    left: 0%;
+    transform: none;
+    text-shadow: none;
+    text-align: left;
+    font-size: 50px;
+    margin-bottom: 20px;
+
+}
+
+
+.top-mainv-image{
+    width: 100%;
+    height: 100%;
 }
 
 .lead{
     display: block;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 2%;
     margin-top: 2%;
@@ -116,8 +134,9 @@ section.top-mainv{
 
 
 section.top-recommend{
-    margin-top: 60px;
+    margin-top: 0px;
     margin-bottom: 60px;
+    padding-top: 0%;
     background-color: white;
 
 }
@@ -128,7 +147,6 @@ section.top-recommend{
     text-align: center;
     font-size: 36px;
     background-color: white;
-    
 }
 
 .top-recommend-list{
@@ -148,11 +166,14 @@ section.top-recommend{
     border-left-color: rgb(0, 169, 224);
     border-left-style: solid;
     border-left-width: 3px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 20%;
+    margin-right: 20%;
     text-align: center;
     list-style: none;
     font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    
+
 }
 
 section.top-steps{
@@ -162,8 +183,8 @@ section.top-steps{
 }
 
 .inner{
-    margin-left: 10%;
-    margin-right: 10%;
+    // margin-left: 5%;
+    // margin-right: 5%;
 }
 
 .top-common-ttl{
@@ -177,10 +198,10 @@ section.top-steps{
 
 .top-steps-list{
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-around;
+    // text-align: center;
 }
 
 .top-steps-list-col{
@@ -200,7 +221,36 @@ section.top-steps{
     border-left-color: rgb(0, 169, 224);
     border-left-style: solid;
     border-left-width: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 10px 10px;
 }
+
+.top-steps-list-col p{
+    font-size: large;
+    padding: 5%;
+    margin-top: -35px;
+    background-color: rgb(0, 169, 224);
+    color: white;
+    border-radius: 80%;
+}
+
+.top-steps-list-image{
+    height: 60%;
+    width: 100%;
+}
+
+.top-steps-list-image-3{
+    height: 70%;
+    width: auto;
+}
+
 
 section.top-why{
     margin-left: 10%;
@@ -242,10 +292,59 @@ section.top-why{
     border-left-color: rgb(0, 169, 224);
     border-left-style: solid;
     border-left-width: 3px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.txt{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.txt h3{
+    width: 100%;
+    text-align: left;
+}
+
+.txt p{
+    margin-top: 0%;
+}
+
+.top-why-list-col-image{
+    max-height: 80%;
+
+}
+
+.txt strong{
+    color: rgb(0, 169, 224);
 }
 
 section.top-entrust{
-    margin-top: 200px;
+    margin-top: 0px;
+    background-color: rgb(238, 248, 252);
+}
+
+#wrapper{
+    width:100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/*========= waveを描画するエリア設定 ===============*/
+
+canvas{
+    position: relative;
+    bottom: -6px;
+    left:0;
+    width: 100%;
 }
 
 .top-common-ttl{
@@ -257,8 +356,8 @@ section.top-entrust{
 }
 
 .top-entrust-block{
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
 }
 
 .top-entrust-block-ttl strong{
@@ -273,12 +372,13 @@ section.top-entrust{
     justify-content: space-between;
     margin-top: 40px;
 
+
 }
 
-.howto-list-col{
+.howto-list-col-1{
     width: 50%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     border-bottom-color: rgb(0, 169, 224);
     border-bottom-left-radius: 20px;
@@ -296,4 +396,71 @@ section.top-entrust{
     border-left-color: rgb(0, 169, 224);
     border-left-style: solid;
     border-left-width: 3px;
+    height: 400px;
+    background-color: white;
+    margin-bottom: 20%;
+    padding: 30px 10px 0px 10px;
+}
+
+.howto-list-col-2{
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
+    height: 400px;
+    background-color: white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 30px 10px 0px 10px;
+}
+
+.howto-list-col-3{
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-bottom-color: rgb(0, 169, 224);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-top-color: rgb(0, 169, 224);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-right-color: rgb(0, 169, 224);
+    border-right-style: solid;
+    border-right-width: 3px;
+    border-left-color: rgb(0, 169, 224);
+    border-left-style: solid;
+    border-left-width: 3px;
+    height: 400px;
+    background-color: white;
+    margin-top: 20%;
+    margin-bottom: 0%;
+    padding: 30px 10px 0px 10px;
+}
+
+
+.howto-list-col-image{
+    height: 70%;
+    width: 100%;
+
 }

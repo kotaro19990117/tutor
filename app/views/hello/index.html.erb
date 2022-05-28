@@ -9,7 +9,7 @@
 
         <section class="top-mainv">
             <div class="top-mainv-txt">
-                <h2>先生と生徒の架け橋に</h2>
+                <h1>先生と生徒の架け橋に</h1>
                 <p class="lead">
                     家庭教師の先生と生徒を繋ぐ進捗管理サービス
                     <br>
@@ -24,7 +24,7 @@
                 <%= link_to "先生新規登録", new_teacher_registration_path, {class: "common-btn"}  %>
                 </div>
             </div>
-            <div class="kv-anime"><%= image_tag 'callender.png', size: '100%' %></div>
+            <div class="kv-anime"><%= image_tag 'learning.png', class: "top-mainv-image" %></div>
             <div class="scrolldown2"><span>Scroll</span></div>
         </section>
 
@@ -33,9 +33,10 @@
             <span>こんな方におすすめです</span>
             </h2>
             <ul class="top-recommend-list">
-            <li>生徒の分からない問題がわからない方</li>
-            <li>生徒が本当に宿題をしているか不安な方</li>
+            <li>分からない問題がどれかわからない方</li>
+            <li>本当に宿題をしているか不安な方</li>
             <li>次授業までにやるべきToDoの提示がめんどくさい方</li>
+            <li>生徒とのコミュニケーションが大変だと感じた方</li>
             </ul>
         </section>
 
@@ -49,30 +50,30 @@
                         たったこれだけで生徒を一元で管理できます。
                     </p>
                 </div>
-                <div class="list-block">
-                    <ul class="top-steps-list move-up-obj">
-                        <li>
-                            <p>01</p>
+                <div class="list-block container">
+                    <div class="top-steps-list move-up-obj row">
+                        <div class="col-md-4">
                             <div class="top-steps-list-col">
-                                <figure></figure>
+                                <p>01</p>
+                                <%= image_tag 'login.png', class: "top-steps-list-image" %>
                                 <h3>登録</h3>
                             </div>
-                        </li>
-                        <li>
-                            <p>02</p>
+                        </div>
+                        <div class="col-md-4">
                             <div class="top-steps-list-col">
-                                <figure></figure>
+                                <p>02</p>
+                                <%= image_tag 'setting.png', class: "top-steps-list-image" %>
                                 <h3>目標設定</h3>
                             </div>
-                        </li>
-                        <li>
-                            <p>03</p>
+                        </div>
+                        <div class="col-md-4">
                             <div class="top-steps-list-col">
-                                <figure></figure>
+                                <p>03</p>
+                                <%= image_tag 'creative.png', class: "top-steps-list-image-3" %>
                                 <h3>進捗管理</h3>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -97,10 +98,10 @@
                                 <br>
                                 つめこみました
                             </h3>
-                            <p>家庭教師の"プロ"がサービスを開発。</p>
-                            <p>シンプルに使いやすさにこだわった自信作です。</p>
+                            <p>家庭教師の"プロ"がサービスを開発。<br>
+                                シンプルに使いやすさにこだわった自信作です。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'geniuses.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -111,10 +112,10 @@
                                 <br>
                                 やる気アップ
                             </h3>
-                            <p>人生の最終・中間目標を設定。</p>
-                            <p>モチベーションを高め勉強意欲を引き出します。</p>
+                            <p>人生の最終・中間目標を設定。<br>
+                                モチベーションを高め勉強意欲を引き出します。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'goal.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -125,10 +126,10 @@
                                 <br>
                                 進捗管理
                             </h3>
-                            <p>担当科目ごとにToDoと進捗がわかるので、</p>
-                            <p>とにかく見やすい。</p>
+                            <p>担当科目ごとにToDoと進捗がわかるので、<br>
+                                とにかく見やすい。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'subject.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -137,26 +138,12 @@
                             <h3>
                                 <strong>グラフで</strong>
                                 <br>
-                                進捗管理
+                                達成度確認
                             </h3>
-                            <p>達成度がグラフで見れる。</p>
-                            <p>生徒の生活に合わせた課題スケジュールの作成のお手伝い。</p>
+                            <p>達成度がグラフで見れる。<br>
+                                生徒の合わせたスケジュールの作成のお手伝い。</p>
                         </div>
-                        <figure></figure>
-                    </div>
-                </li>
-                <li class="move-up-txt">
-                    <div class="top-why-list-col">
-                        <div class="txt">
-                            <h3>
-                                <strong>科目ごとに</strong>
-                                <br>
-                                進捗管理
-                            </h3>
-                            <p>担当科目ごとにToDoと進捗がわかるので、</p>
-                            <p>とにかく見やすい。</p>
-                        </div>
-                        <figure></figure>
+                        <%= image_tag 'graph.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -165,10 +152,10 @@
                             <h3>
                                 生徒を<strong>一元管理</strong>
                             </h3>
-                            <p>担当生徒ごとに一つの部屋が作られる。</p>
-                            <p>複数人の生徒を一元で管理できる。</p>
+                            <p>担当生徒ごとに一つの部屋が作られる。<br>
+                                複数人の生徒を一元で管理できる。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'students.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -179,11 +166,11 @@
                                 <br>
                                 スケジュール調整
                             </h3>
-                            <p>授業予定だけでなく、模試やテストなどを</p>
-                            <p>生徒ごとに予定を作成。</p>
-                            <p>もちろん生徒カレンダーにも反映される。</p>
+                            <p>授業予定だけでなく、模試やテストなどを<br>
+                                生徒ごとに予定を作成。<br>
+                                もちろん生徒カレンダーにも反映される。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'callender.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
                 <li class="move-up-txt">
@@ -194,15 +181,16 @@
                                 <br>
                                 <strong>チャットで</strong>
                             </h3>
-                            <p>チャットで生徒とコミュニケーション。</p>
-                            <p>家庭教師に関わることはこのサービス一つで。</p>
+                            <p>チャットで生徒とコミュニケーション。<br>
+                                家庭教師に関わることはこのサービス一つで。</p>
                         </div>
-                        <figure></figure>
+                        <%= image_tag 'message.png', class: "top-why-list-col-image" %>
                     </div>
                 </li>
             </ul>
         </section>
-        
+        <canvas id="waveCanvas"></canvas>
+        <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/js/5-10.js"></script>      
         <section class="top-entrust">
             <div class="top-common-ttl">
                 <h2 class="move-up-txt">
@@ -225,20 +213,20 @@
                     <strong>やりたいこと</strong>
                 </h3>
                 <ul class="howto-list move-up-obj">
-                    <li class="howto-list-col">
+                    <li class="howto-list-col-1">
                         <h4>今までは</h4>
-                        <figure></figure>
+                        <%= image_tag 'rain.png', class: "howto-list-col-image" %>
                         <p>うまく授業ができない</p>
                     </li>
-                    <li class="howto-list-col">
+                    <li class="howto-list-col-2">
                         <h4>これからは</h4>
-                        <figure></figure>
-                        <p>できたこと・分からないことが事前にわかり
-                            授業がスムーズに。</p>
+                        <%= image_tag 'teaching.png', class: "howto-list-col-image" %>
+                        <p>できたこと・できなかったことが<br>
+                            事前にわかり授業がスムーズに</p>
                     </li>
-                    <li class="howto-list-col">
+                    <li class="howto-list-col-3">
                         <h4>さらに</h4>
-                        <figure></figure>
+                        <%= image_tag 'friends.png', class: "howto-list-col-image" %>
                         <p>生徒も安心して勉強できる</p>
                     </li>
                 </ul>
@@ -261,3 +249,105 @@
 
 
 </div>
+
+<script>
+var unit = 100,
+    canvasList, // キャンバスの配列
+    info = {}, // 全キャンバス共通の描画情報
+    colorList; // 各キャンバスの色情報
+
+/**
+ * Init function.
+ * 
+ * Initialize variables and begin the animation.
+ */
+function init() {
+    info.seconds = 0;
+    info.t = 0;
+    canvasList = [];
+    colorList = [];
+    // canvas1個めの色指定
+    canvasList.push(document.getElementById("waveCanvas"));
+    colorList.push(['rgb(238, 248, 252)']);
+  // 各キャンバスの初期化
+    for(var canvasIndex in canvasList) {
+        var canvas = canvasList[canvasIndex];
+        canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
+        canvas.height = 100;//波の高さ
+        canvas.contextCache = canvas.getContext("2d");
+    }
+    // 共通の更新処理呼び出し
+    update();
+}
+
+function update() {
+    for(var canvasIndex in canvasList) {
+        var canvas = canvasList[canvasIndex];
+        // 各キャンバスの描画
+        draw(canvas, colorList[canvasIndex]);
+    }
+    // 共通の描画情報の更新
+    info.seconds = info.seconds + .014;
+    info.t = info.seconds*Math.PI;
+    // 自身の再起呼び出し
+    setTimeout(update, 35);
+}
+
+/**
+ * Draw animation function.
+ * 
+ * This function draws one frame of the animation, waits 20ms, and then calls
+ * itself again.
+ */
+function draw(canvas, color) {
+    // 対象のcanvasのコンテキストを取得
+    var context = canvas.contextCache;
+    // キャンバスの描画をクリア
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
+    drawWave(canvas, color[0], 1, 3, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
+}
+
+/**
+* 波を描画
+* drawWave(色, 不透明度, 波の幅のzoom, 波の開始位置の遅れ)
+*/
+function drawWave(canvas, color, alpha, zoom, delay) {
+    var context = canvas.contextCache;
+    context.fillStyle = color;//塗りの色
+    context.globalAlpha = alpha;
+    context.beginPath(); //パスの開始
+    drawSine(canvas, info.t / 0.5, zoom, delay);
+    context.lineTo(canvas.width + 10, canvas.height); //パスをCanvasの右下へ
+    context.lineTo(0, canvas.height); //パスをCanvasの左下へ
+    context.closePath() //パスを閉じる
+    context.fill(); //波を塗りつぶす
+}
+
+/**
+ * Function to draw sine
+ * 
+ * The sine curve is drawn in 10px segments starting at the origin. 
+ * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
+ */
+function drawSine(canvas, t, zoom, delay) {
+    var xAxis = Math.floor(canvas.height/2);
+    var yAxis = 0;
+    var context = canvas.contextCache;
+    // Set the initial x and y, starting at 0,0 and translating to the origin on
+    // the canvas.
+    var x = t; //時間を横の位置とする
+    var y = Math.sin(x)/zoom;
+    context.moveTo(yAxis, unit*y+xAxis); //スタート位置にパスを置く
+
+    // Loop to draw segments (横幅の分、波を描画)
+    for (i = yAxis; i <= canvas.width + 10; i += 10) {
+        x = t+(-yAxis+i)/unit/zoom;
+        y = Math.sin(0.3*x - delay)/3;
+        context.lineTo(i, unit*y+xAxis);
+    }
+}
+
+init();
+</script>

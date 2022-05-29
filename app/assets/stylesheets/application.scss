@@ -21,22 +21,36 @@
     padding: 0;
     margin: 0;
 }
+
+h1{
+  color: rgb(26, 25, 25);
+  position: relative;
+  top: 0%; 
+  left: 0%;
+  transform: none;
+  text-shadow: none;
+  font-size: 50px;
+  font-weight: 700;
+}
+
 body{
-    font-family:  "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
-    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-    //  background-image: url("background.jpg");
+    font-family:  "游ゴシック体","Yu Gothic","ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN","メイリオ","sans-serif";
+    font-weight: 700;
      background-size: cover;
      background-color: white;
 }
 header{
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: white;
-    height: 100px;
+  width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 60px;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 100;
 }
 
 header li{
@@ -50,17 +64,24 @@ header li{
   }
 
 footer{
-   color: white;
+   color: rgb(0, 169, 224);
    height: 30px;
-   background-color: #000;
-   bottom: 0;
+   background-color: white;
+   bottom: 0px;
    width: 100%;
    display: flex;
    align-items: center;
-//    position: fixed;
+  position: fixed;
    justify-content: flex-end;
+   opacity: 0.8;
+   
 }
 
+
+footer p{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 
 /*========= ナビゲーションのためのCSS ===============*/
@@ -221,3 +242,4 @@ opacity: 1;
 .form-controll{
   border: solid rgb(179, 181, 182);
 }
+

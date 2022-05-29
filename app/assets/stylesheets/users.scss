@@ -1,0 +1,28 @@
+.text-center{
+	min-height: 100%;
+	margin-left: 20%;
+    margin-right: 20%;
+	padding: 0;
+	// display: table-cell;
+	vertical-align: middle;
+    padding-top: 10%;
+}
+
+h1{
+    color: rgb(26, 25, 25);
+    position: relative;
+    top: 0%; 
+    left: 0%;
+    transform: none;
+    text-shadow: none;
+    font-size: 30px;
+    font-weight: 700;
+    }
+
+label{
+    margin-top: 10px;
+    margin-bottom: 0%;
+}
+.actions{
+    margin-top: 20px;
+}

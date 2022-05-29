@@ -1,4 +1,4 @@
-
+<%= stylesheet_link_tag "index", :media => "all" %>
 <h2><%= @student.name %>の進捗</h2>
 <h3><%= @teacher.name %>先生</h3>
 
@@ -33,7 +33,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">進捗</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -97,11 +97,12 @@
                 <div class="tweets">
                     <% tweet_students_data = @tweet_students.where(num:i).order(id: :DESC) %>
                     <% tweet_students_data.each do |t| %>
+                        <div class="card">
                         <div class = "tweet">
                             <div class="field">
                                 <%= t.body %>
                             </div>
-                            <div class="field">
+                            <div class="field notget">
                                 <%= t.notget %>
                             </div>
                             <div class="field">
@@ -120,6 +121,7 @@
                                 <%= link_to "編集する", edit_tweet_student_path(t.id) %>
                                 <%= button_to "削除する", tweet_student_path(t.id), method: :delete %>
                             </div>
+                        </div>
                         </div>
                     <% end %>
                 </div>

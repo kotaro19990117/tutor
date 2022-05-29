@@ -5,8 +5,10 @@
 // }
 
 h2{
+    padding-top: 100px;
     width: 100%;
-    margin: 10px auto;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
     text-align: center;
 }
 
@@ -30,6 +32,13 @@ h3{
     color: red;
 }
 
+.card{
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
 
 .tweet{
     border-top: solid #00acee;
@@ -50,3 +59,7 @@ h3{
 //     display: flex;
 //     justify-content: flex-end;
 // }
+
+.notget{
+    color: red;
+}

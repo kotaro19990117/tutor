@@ -79,10 +79,10 @@ section.top-mainv{
     /*描画位置*/
   position: absolute;
   left:10px;
-  bottom:40px;
+  bottom:65px;
     /*テキストの形状*/
   color: rgb(0, 169, 224);
-  font-size: 0.7rem;
+  font-size: 15px;
   letter-spacing: 0.05em;
   /*縦書き設定*/
   -ms-writing-mode: tb-rl;
@@ -110,7 +110,7 @@ section.top-mainv{
 
 /*下からの距離が変化して丸の全体が上から下に動く*/
 @keyframes circlemove{
-      0%{bottom:75px;}
+      0%{bottom:125px;}
      100%{bottom:25px;}
  }
 
@@ -131,7 +131,7 @@ section.top-mainv{
   left:0;
     /*線の形状*/
   width:2px;
-  height: 50px;
+  height: 100px;
   background:rgb(0, 169, 224);
 }
 
@@ -471,3 +471,16 @@ canvas{
     width: 100%;
 
 }
+
+section.top-movie{
+    background-color: white;
+}
+
+.move-up-txt{
+    // opacity → 不透明度の指定
+   opacity : 0;
+    // transform → 移動距離の指定
+    transform: translateY(50px);
+    // transition → 移動時間の指定
+    transition: 2.5s;
+ }

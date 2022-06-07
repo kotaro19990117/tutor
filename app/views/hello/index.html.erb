@@ -232,18 +232,33 @@
                 </ul>
             </li>
         </section>
+
+        <!-- page-container -->
+
+        <section class="top-movie">
+            <div class="top-movie-txt">
+                <h2>MOVIE</h2>
+            </div>
+            <div class="movie-container">
+                <button type="button" class="btn btn-primary btn-lg video" data-video="<iframe width="560" height="315" src="https://www.youtube.com/embed/a68tlzuw9DA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>" data-toggle="modal" data-target="#videoModal">
+                    Launch Youtube video
+                </button>
+            
+                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
     </main>
-    <!-- page-container -->
-
-    <div class="fotter-container">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-
 
 
 
@@ -350,4 +365,70 @@ function drawSine(canvas, t, zoom, delay) {
 }
 
 init();
+
+$(function(){
+  function animation(){
+    $('.move-up-txt').each(function(){
+      // offset() → HTML要素の表示位置を座標で取得できるメソッド
+      // これにtopを組み合わせることで、Y座標のみを取得できる
+      var target = $(this).offset().top;
+      //スクロール量を取得
+      var scroll = $(window).scrollTop();
+      //ウィンドウの高さを取得
+      var windowHeight = $(window).height();
+      //ターゲットまでスクロールするとフェードインする
+      if (scroll > target - windowHeight){
+        $(this).css('opacity','1');
+        $(this).css('transform','translateY(0)');
+      }
+    });
+  }
+  $(window).scroll(function (){
+    animation();
+  });
+});
+
+$(function() {
+  $(".video").click(function () {
+    var theModal = $(this).data("target"),
+    videoSRC = $(this).attr("data-video"),
+    videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
+    $(theModal + ' iframe').attr('src', videoSRCauto);
+    $(theModal + ' button.close').click(function () {
+      $(theModal + ' iframe').attr('src', '');
+    });
+  });
+});
+
+$(function() {
+  function centerModals($element) {
+    var $modals;
+    if ($element.length) {
+      $modals = $element;
+    } else {
+      $modals = $(".modal" + ':visible');
+    }
+    $modals.each( function(i) {
+      var $clone = $(this).clone().css('display', 'block').appendTo('body');
+      var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+      top = top > 0 ? top : 0;
+      $clone.remove();
+      $(this).find('.modal-content').css("margin-top", top);
+    });
+  }
+ 
+  // modal表示時
+  $(".modal").on('show.bs.modal', function(e) {
+    centerModals($(this));
+  });
+  // windowリサイズ時
+  $(window).on('resize', centerModals);
+});
+
+$(function() {
+  $('#videoModal').on('hidden.bs.modal', function() {
+    var $this = $(this).find('iframe'),
+    $this.attr('src', "");
+  });
+});
 </script>

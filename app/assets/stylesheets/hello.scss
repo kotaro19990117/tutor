@@ -1,8 +1,67 @@
 
+/*========= LoadingのためのCSS ===============*/
 
-main.page-container-top{
-    margin-top: 0px;
+/* Loading背景画面設定　*/
+
+#splash {
+    /*fixedで全面に固定*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background:rgb(201, 228, 241);
+  text-align:center;
+ color:black;
 }
+
+.loading-image{
+    width: auto;
+    height: 85%;
+    position: relative;
+    top: 40%;
+    
+}
+
+/* Loadingバー中央配置　*/
+#splash_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    z-index: 999;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+/*IE11対策用バーの線の高さ※対応しなければ削除してください*/
+#splash_text svg{
+    height: 2px;
+}
+// /*========= レイアウトのためのCSS ===============*/
+
+
+// #container{
+//     width:100%;
+//     height: 100vh;
+//     background: #ccc;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+// }
+
+
+// a{
+//     color: #333;
+// }
+
+// a:hover{
+//      text-decoration: none;   
+// }
+
+// main.page-container-top{
+//     margin-top: 0px;
+// }
 
 section.top-mainv{
     border-left-color: rgb(61, 57, 57);
@@ -224,15 +283,17 @@ section.top-steps{
     border-left-color: rgb(0, 169, 224);
     border-left-style: solid;
     border-left-width: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
+    // padding-left: 5px;
+    // padding-right: 5px;
     background-color: white;
     height: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 10px 10px 10px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .top-steps-list-col p{
@@ -242,6 +303,141 @@ section.top-steps{
     background-color: rgb(0, 169, 224);
     color: white;
     border-radius: 80%;
+}
+
+.video-play-button {
+    position: relative;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    /* background: #fa183d; */
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px;
+  }
+  
+  .video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: rgb(0, 169, 224);
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+  }
+  
+  .video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: rgb(0, 169, 224);
+    border-radius: 50%;
+    transition: all 200ms;
+  }
+  
+  .video-play-button:hover:after {
+    background-color: darken(rgb(0, 169, 224), 10%);
+  }
+  
+  .video-play-button img {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+  
+  .video-play-button span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid #fff;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+  }
+  
+  @keyframes pulse-border {
+    0% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  
+  
+  .video-overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.80);
+    opacity: 0;
+    transition: all ease 500ms;
+  }
+  
+  .video-overlay.open {
+    position: fixed;
+    z-index: 1000;
+    opacity: 1;
+  }
+  
+  .video-overlay-close {
+    position: absolute;
+    z-index: 1000;
+    top: 15px;
+    right: 20px;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  
+  .video-overlay-close:hover {
+    color: rgb(0, 169, 224);
+  }
+  
+  .video-overlay iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    /* width: 90%; */
+    /* height: auto; */
+    box-shadow: 0 0 15px rgba(0,0,0,0.75);
+  }
+
+.top-steps-image{
+    position: relative;
+    width: auto;
+    height: 100%;
+    top: -80px;
+    left: 12%;
 }
 
 .top-steps-list-image{
@@ -480,7 +676,7 @@ section.top-movie{
     // opacity → 不透明度の指定
    opacity : 0;
     // transform → 移動距離の指定
-    transform: translateY(50px);
+    transform: translateY(200px);
     // transition → 移動時間の指定
-    transition: 2.5s;
+    transition: 0.5s;
  }

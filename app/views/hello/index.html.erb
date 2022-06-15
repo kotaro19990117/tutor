@@ -1,6 +1,11 @@
 <%= stylesheet_link_tag "hello", :media => "all" %>
 
-<div class="loading"></div>
+<div class="loading">
+<div id="splash">
+    <%= image_tag 'loading.png', class:"loading-image" %>
+    <div id="splash_text"></div>
+  </div>
+</div>
 <div class="tutor">
     <div class="header-contaner"></div>
 
@@ -50,30 +55,46 @@
                         たったこれだけで生徒を一元で管理できます。
                     </p>
                 </div>
-                <div class="list-block container">
-                    <div class="top-steps-list move-up-obj row">
-                        <div class="col-md-4">
-                            <div class="top-steps-list-col">
-                                <p>01</p>
-                                <%= image_tag 'login.png', class: "top-steps-list-image" %>
-                                <h3>登録</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="top-steps-list-col">
-                                <p>02</p>
-                                <%= image_tag 'setting.png', class: "top-steps-list-image" %>
-                                <h3>目標設定</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="top-steps-list-col">
-                                <p>03</p>
-                                <%= image_tag 'creative.png', class: "top-steps-list-image-3" %>
-                                <h3>進捗管理</h3>
-                            </div>
-                        </div>
+                <div class="top-steps-list-col">
+                    
+                    <a id="play-video" class="video-play-button" href="#">
+                        <span></span>
+                    </a>
+                    <%= image_tag 'movie.png', class: "top-steps-image" %> 
+                    
+                    <div id="video-overlay" class="video-overlay">
+                        <a class="video-overlay-close">&times;</a>
                     </div>
+                </div>
+
+
+
+                <!--
+                    <div class="list-block container">
+                        <div class="top-steps-list move-up-obj row">
+                            <div class="col-md-4">
+                                <div class="top-steps-list-col">
+                                    <p>01</p>
+                                    <%= image_tag 'login.png', class: "top-steps-list-image" %>
+                                    <h3>登録</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="top-steps-list-col">
+                                    <p>02</p>
+                                    <%= image_tag 'setting.png', class: "top-steps-list-image" %>
+                                    <h3>目標設定</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="top-steps-list-col">
+                                    <p>03</p>
+                                    <%= image_tag 'creative.png', class: "top-steps-list-image-3" %>
+                                    <h3>進捗管理</h3>
+                                </div>
+                            </div>
+                        </div>
+                    -->
                 </div>
             </div>
         </section>
@@ -235,28 +256,7 @@
 
         <!-- page-container -->
 
-        <section class="top-movie">
-            <div class="top-movie-txt">
-                <h2>MOVIE</h2>
-            </div>
-            <div class="movie-container">
-                <button type="button" class="btn btn-primary btn-lg video" data-video="<iframe width="560" height="315" src="https://www.youtube.com/embed/a68tlzuw9DA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>" data-toggle="modal" data-target="#videoModal">
-                    Launch Youtube video
-                </button>
-            
-                <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     
     </main>
 
@@ -266,6 +266,37 @@
 </div>
 
 <script>
+//テキストのカウントアップ+バーの設定
+var bar = new ProgressBar.Line(splash_text, {//id名を指定
+  easing: 'easeInOut',//アニメーション効果linear、easeIn、easeOut、easeInOutが指定可能
+  duration: 10000,//時間指定(1000＝1秒)
+  strokeWidth: 0.2,//進捗ゲージの太さ
+  color: '#555',//進捗ゲージのカラー
+  trailWidth: 0.2,//ゲージベースの線の太さ
+  trailColor: '#555',//ゲージベースの線のカラー
+  text: {//テキストの形状を直接指定       
+    style: {//天地中央に配置
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      padding: '0',
+      margin: '-30px 0 0 0',//バーより上に配置
+      transform:'translate(-50%,-50%)',
+      'font-size':'1rem',
+      color: '#555',
+    },
+    autoStyleContainer: false //自動付与のスタイルを切る
+  },
+  step: function(state, bar) {
+    bar.setText(Math.round(bar.value() * 100) + ' %'); //テキストの数値
+  }
+});
+
+//アニメーションスタート
+bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画します
+  $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
+});  
+
 var unit = 100,
     canvasList, // キャンバスの配列
     info = {}, // 全キャンバス共通の描画情報
@@ -389,18 +420,6 @@ $(function(){
 });
 
 $(function() {
-  $(".video").click(function () {
-    var theModal = $(this).data("target"),
-    videoSRC = $(this).attr("data-video"),
-    videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
-    $(theModal + ' iframe').attr('src', videoSRCauto);
-    $(theModal + ' button.close').click(function () {
-      $(theModal + ' iframe').attr('src', '');
-    });
-  });
-});
-
-$(function() {
   function centerModals($element) {
     var $modals;
     if ($element.length) {
@@ -427,8 +446,27 @@ $(function() {
 
 $(function() {
   $('#videoModal').on('hidden.bs.modal', function() {
-    var $this = $(this).find('iframe'),
+    var $this = $(this).find('iframe');
     $this.attr('src', "");
   });
 });
+
+$('#play-video').on('click', function(e){
+  e.preventDefault();
+  $('#video-overlay').addClass('open');
+  $("#video-overlay").append('<iframe width="560" height="315" src="https://www.youtube.com/embed/a68tlzuw9DA" frameborder="0" allowfullscreen></iframe>');
+});
+
+$('.video-overlay, .video-overlay-close').on('click', function(e){
+  e.preventDefault();
+  close_video();
+});
+
+$(document).keyup(function(e){
+  if(e.keyCode === 27) { close_video(); }
+});
+
+function close_video() {
+  $('.video-overlay.open').removeClass('open').find('iframe').remove();
+};
 </script>

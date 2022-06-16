@@ -5,10 +5,10 @@
 	padding: 0;
 	// display: table-cell;
 	vertical-align: middle;
-    padding-top: 10%;
+    padding-top: 6%;
 }
 
-h1{
+.card-title{
     color: rgb(26, 25, 25);
     position: relative;
     top: 0%; 
@@ -17,6 +17,7 @@ h1{
     text-shadow: none;
     font-size: 30px;
     font-weight: 700;
+    margin-bottom: 100px;
     }
 
 label{
@@ -25,4 +26,15 @@ label{
 }
 .actions{
     margin-top: 20px;
+}
+
+.border{
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    border: 1px;
+    top: 20%;
+    left: 33%;
+    z-index: -10;
+    
 }

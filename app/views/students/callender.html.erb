@@ -1,5 +1,7 @@
+<%= stylesheet_link_tag "calender", :media => "all" %>
 <h2><%= @student.name %>の予定</h2>
 
+<div class="calender-container">
 <%= month_calendar events: @schedules do |date, schedule| %>
     <%= date.day %>
     <% schedule.each do |s| %>
@@ -9,3 +11,4 @@
     <% end %>
 <% end %>
 
+</div>

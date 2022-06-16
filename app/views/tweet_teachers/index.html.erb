@@ -1,7 +1,8 @@
-
+<%= stylesheet_link_tag "calender", :media => "all" %>
 
 <h2><%= @teacher.name %>先生の予定表</h2>
 
+<div class="calender-container">
 <%= link_to 'スケジュールを書く', new_schedule_path(:teacher_id => current_teacher.id) %>
 
 <%= month_calendar events: @schedules do |date, schedule| %>
@@ -14,5 +15,6 @@
   <% end %>
 <% end %>
 
+</div>
 
 

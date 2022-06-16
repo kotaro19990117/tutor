@@ -1,41 +1,94 @@
 <%= stylesheet_link_tag 'conversations', :media => "all" %>
 
-
+<div class="chat-header"></div>
 <div class="chat-container">
     <% if teacher_signed_in? %>
-        <h3><%= @student.name %>とのチャットルーム</h3>
+        <h3 class="room-name"><%= @student.name %>とのチャットルーム</h3>
         <div class="chat-field">
             <% @messages.each do |m| %>
                 <% if m.is_teacher %>
                     <div class="right-message">
-                        <%= m.body %>
+                        <div class="sb-box">
+                            <div class="icon-img icon-img-right">
+                                <%= image_tag current_teacher.image_url if current_teacher.image? %>
+                            </div>
+                            <div class="icon-name icon-name-right">
+                                <%= current_teacher.name %>
+                            </div>
+                            <div class="sb-side sb-side-right">
+                                <div class="sb-txt sb-txt-right">
+                                    <%= m.body %>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <% else %>
                     <div class="left-message">
-                        <%= m.body %>
+                        <div class="sb-box">
+                            <div class="icon-img icon-img-left">
+                                <%= image_tag @student.image_url if @student.image? %>
+                            </div>
+                            <div class="icon-name icon-name-left">
+                                <%= @student.name %>
+                            </div>
+                            <div class="sb-side sb-side-left">
+                                <div class="sb-txt sb-txt-left">
+                                    <%= m.body %>
+                                </div>
+                            </div>                            
+                        </div>
                     </div>
                 <% end %>
             <% end %>
         </div>
     <% elsif student_signed_in?%>
-        <h3><%= @teacher.name %>先生とのチャットルーム</h3>
+        <h3 class="room-name"><%= @teacher.name %>先生とのチャットルーム</h3>
         <div class="chat-field">
             <% @messages.each do |m| %>
                 <% if m.is_teacher %>
                     <div class="left-message">
-                        <%= m.body %>
+                        <div class="sb-box">
+                            <div class="icon-img icon-img-left">
+                                <%= image_tag @teacher.image_url if @teacher.image? %>
+                            </div>
+                            <div class="icon-name icon-name-left">
+                                <%= @teacher.name %>
+                            </div>
+                            <div class="sb-side sb-side-left">
+                                <div class="sb-txt sb-txt-left">
+                                    <%= m.body %>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <% else %>
                     <div class="right-message">
-                        <%= m.body %>
+                        <div class="sb-box">
+                            <div class="icon-img icon-img-right">
+                                <%= image_tag current_student.image_url if current_student.image? %>
+                            </div>
+                            <div class="icon-name icon-name-right">
+                                <%= current_student.name %>
+                            </div>
+                            <div class="sb-side sb-side-right">
+                                <div class="sb-txt sb-txt-right">
+                                    <%= m.body %>
+                                </div>
+                            </div>                            
+                        </div>
                     </div>
                 <% end %>
             <% end %>
         </div>
     <% end %>
-    <%= form_with url: conversation_messages_path(@conversation) do |f| %>
-        <%= f.text_field :body %>
-        <%= f.hidden_field :conversation_id, :value => @conversation.id %>
-        <%= f.submit "メッセージを送る"%>
-    <% end %>
+    <div class="send">
+        <%= form_with url: conversation_messages_path(@conversation) do |f| %>
+            <%= f.hidden_field :conversation_id, :value => @conversation.id %>
+            <%= f.text_area :body , class:'send-message'%> 
+            <%= f.button :type => "submit", class:'send-btn' do %>
+                <i class="fa-regular fa-paper-plane fa-2xl"></i>
+            <% end %>
+        <% end %>
+    </div>
 </div>
+<div class="chat-fotter"></div>

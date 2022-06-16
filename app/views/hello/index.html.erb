@@ -20,13 +20,31 @@
                     <br>
                     授業進行はこれにお任せ
                 </p>
-                <ul>
+                <!-- <ul>
                     <li>利用料金無料</li>
                     <li>PC,スマートフォン対応</li>
-                </ul>
+                </ul> -->
                 <div class="btn-area">
-                <%= link_to "生徒新規登録", new_student_registration_path, {class: "common-btn"}  %>
-                <%= link_to "先生新規登録", new_teacher_registration_path, {class: "common-btn"}  %>
+                    <div class="btn-peo-area">
+                        <p><strong>生徒</strong>はこちら</p>
+                        <div class="hinatsu">
+                            <%= image_tag 'student.png', class:"btn-image" %>
+                            <div class="mouse-area">
+                                <a href="/students/sign_up" class="btn btn-flat"><span>新規登録</span></a>
+                                <a href="/students/sign_in" class="btn btn-flat"><span>ログイン</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-peo-area">
+                        <p><strong>先生</strong>はこちら</p>
+                        <div class="hinatsu">
+                            <%= image_tag 'teacher.png', class:"btn-image" %>
+                            <div class="mouse-area">
+                            <a href="/teachers/sign_up" class="btn btn-flat"><span>新規登録</span></a>
+                            <a href="/teachers/sign_in" class="btn btn-flat"><span>ログイン</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="kv-anime"><%= image_tag 'learning.png', class: "top-mainv-image" %></div>
@@ -66,35 +84,6 @@
                         <a class="video-overlay-close">&times;</a>
                     </div>
                 </div>
-
-
-
-                <!--
-                    <div class="list-block container">
-                        <div class="top-steps-list move-up-obj row">
-                            <div class="col-md-4">
-                                <div class="top-steps-list-col">
-                                    <p>01</p>
-                                    <%= image_tag 'login.png', class: "top-steps-list-image" %>
-                                    <h3>登録</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="top-steps-list-col">
-                                    <p>02</p>
-                                    <%= image_tag 'setting.png', class: "top-steps-list-image" %>
-                                    <h3>目標設定</h3>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="top-steps-list-col">
-                                    <p>03</p>
-                                    <%= image_tag 'creative.png', class: "top-steps-list-image-3" %>
-                                    <h3>進捗管理</h3>
-                                </div>
-                            </div>
-                        </div>
-                    -->
                 </div>
             </div>
         </section>
@@ -210,8 +199,6 @@
                 </li>
             </ul>
         </section>
-        <canvas id="waveCanvas"></canvas>
-        <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/5-10/js/5-10.js"></script>      
         <section class="top-entrust">
             <div class="top-common-ttl">
                 <h2 class="move-up-txt">
@@ -234,18 +221,18 @@
                     <strong>実現したいこと</strong>
                 </h3>
                 <ul class="howto-list move-up-obj">
-                    <li class="howto-list-col-1">
+                    <li class="move-up-txt howto-list-col-1">
                         <h4>今までは</h4>
                         <%= image_tag 'rain.png', class: "howto-list-col-image" %>
                         <p>うまく授業ができない</p>
                     </li>
-                    <li class="howto-list-col-2">
+                    <li class="move-up-txt howto-list-col-2">
                         <h4>これからは</h4>
                         <%= image_tag 'teaching.png', class: "howto-list-col-image" %>
                         <p>できたこと・できなかったことが<br>
                             事前にわかり授業がスムーズに</p>
                     </li>
-                    <li class="howto-list-col-3">
+                    <li class="move-up-txt howto-list-col-3">
                         <h4>さらに</h4>
                         <%= image_tag 'friends.png', class: "howto-list-col-image" %>
                         <p>生徒も安心して勉強できる</p>
@@ -269,11 +256,11 @@
 //テキストのカウントアップ+バーの設定
 var bar = new ProgressBar.Line(splash_text, {//id名を指定
   easing: 'easeInOut',//アニメーション効果linear、easeIn、easeOut、easeInOutが指定可能
-  duration: 10000,//時間指定(1000＝1秒)
+  duration: 1000,//時間指定(1000＝1秒)
   strokeWidth: 0.2,//進捗ゲージの太さ
-  color: '#555',//進捗ゲージのカラー
+  color: '#fff',//進捗ゲージのカラー
   trailWidth: 0.2,//ゲージベースの線の太さ
-  trailColor: '#555',//ゲージベースの線のカラー
+  trailColor: '#fff',//ゲージベースの線のカラー
   text: {//テキストの形状を直接指定       
     style: {//天地中央に配置
       position: 'absolute',
@@ -283,7 +270,7 @@ var bar = new ProgressBar.Line(splash_text, {//id名を指定
       margin: '-30px 0 0 0',//バーより上に配置
       transform:'translate(-50%,-50%)',
       'font-size':'1rem',
-      color: '#555',
+      color: '#fff',
     },
     autoStyleContainer: false //自動付与のスタイルを切る
   },
@@ -297,105 +284,7 @@ bar.animate(1.0, function () {//バーを描画する割合を指定します 1.
   $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
 });  
 
-var unit = 100,
-    canvasList, // キャンバスの配列
-    info = {}, // 全キャンバス共通の描画情報
-    colorList; // 各キャンバスの色情報
 
-/**
- * Init function.
- * 
- * Initialize variables and begin the animation.
- */
-function init() {
-    info.seconds = 0;
-    info.t = 0;
-    canvasList = [];
-    colorList = [];
-    // canvas1個めの色指定
-    canvasList.push(document.getElementById("waveCanvas"));
-    colorList.push(['rgb(238, 248, 252)']);
-  // 各キャンバスの初期化
-    for(var canvasIndex in canvasList) {
-        var canvas = canvasList[canvasIndex];
-        canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
-        canvas.height = 100;//波の高さ
-        canvas.contextCache = canvas.getContext("2d");
-    }
-    // 共通の更新処理呼び出し
-    update();
-}
-
-function update() {
-    for(var canvasIndex in canvasList) {
-        var canvas = canvasList[canvasIndex];
-        // 各キャンバスの描画
-        draw(canvas, colorList[canvasIndex]);
-    }
-    // 共通の描画情報の更新
-    info.seconds = info.seconds + .014;
-    info.t = info.seconds*Math.PI;
-    // 自身の再起呼び出し
-    setTimeout(update, 35);
-}
-
-/**
- * Draw animation function.
- * 
- * This function draws one frame of the animation, waits 20ms, and then calls
- * itself again.
- */
-function draw(canvas, color) {
-    // 対象のcanvasのコンテキストを取得
-    var context = canvas.contextCache;
-    // キャンバスの描画をクリア
-    context.clearRect(0, 0, canvas.width, canvas.height);
-
-    //波を描画 drawWave(canvas, color[数字（波の数を0から数えて指定）], 透過, 波の幅のzoom,波の開始位置の遅れ )
-    drawWave(canvas, color[0], 1, 3, 0);//drawWave(canvas, color[0],0.5, 3, 0);とすると透過50%の波が出来る
-}
-
-/**
-* 波を描画
-* drawWave(色, 不透明度, 波の幅のzoom, 波の開始位置の遅れ)
-*/
-function drawWave(canvas, color, alpha, zoom, delay) {
-    var context = canvas.contextCache;
-    context.fillStyle = color;//塗りの色
-    context.globalAlpha = alpha;
-    context.beginPath(); //パスの開始
-    drawSine(canvas, info.t / 0.5, zoom, delay);
-    context.lineTo(canvas.width + 10, canvas.height); //パスをCanvasの右下へ
-    context.lineTo(0, canvas.height); //パスをCanvasの左下へ
-    context.closePath() //パスを閉じる
-    context.fill(); //波を塗りつぶす
-}
-
-/**
- * Function to draw sine
- * 
- * The sine curve is drawn in 10px segments starting at the origin. 
- * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
- */
-function drawSine(canvas, t, zoom, delay) {
-    var xAxis = Math.floor(canvas.height/2);
-    var yAxis = 0;
-    var context = canvas.contextCache;
-    // Set the initial x and y, starting at 0,0 and translating to the origin on
-    // the canvas.
-    var x = t; //時間を横の位置とする
-    var y = Math.sin(x)/zoom;
-    context.moveTo(yAxis, unit*y+xAxis); //スタート位置にパスを置く
-
-    // Loop to draw segments (横幅の分、波を描画)
-    for (i = yAxis; i <= canvas.width + 10; i += 10) {
-        x = t+(-yAxis+i)/unit/zoom;
-        y = Math.sin(0.3*x - delay)/3;
-        context.lineTo(i, unit*y+xAxis);
-    }
-}
-
-init();
 
 $(function(){
   function animation(){

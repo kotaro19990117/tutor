@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag "index", :media => "all" %>
 <h2><%= @student.name %>の進捗</h2>
-<h3><%= @teacher.name %>先生</h3>
 
 <div class="goal">
     <p>最終目標</p>
@@ -118,8 +117,12 @@
                                 <i class="fas fa-heart"></i><%= t.likes.count %>
                             </div>
                             <div class="field">
-                                <%= link_to "編集する", edit_tweet_student_path(t.id) %>
-                                <%= button_to "削除する", tweet_student_path(t.id), method: :delete %>
+                                <%= link_to edit_tweet_student_path(t.id), method: :get do %>
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                <% end %>
+                                <%= link_to tweet_student_path(t.id), method: :delete do %>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                <% end %>
                             </div>
                         </div>
                         </div>

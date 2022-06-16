@@ -2,22 +2,228 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.chat-header{
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  z-index: 20;
+  position: fixed;
+  top: 0%;
+}
+
 .chat-container{
     width: 50%;
     margin: 10px auto;
-    flex-flow: column;
+    padding-top: 200px;
+    margin-bottom: 5.5%;
+    background-color: rgb(201, 228, 241);
+    
 }
 
-h3{
-    width: 100%;
-    margin: 10px auto;
-    text-align: center;
+.room-name{
+  font-size: 36px;
+  position: fixed;
+  top: 10%;
+  background-color: #bbb;
+  z-index: 10;
+  padding-top: 14px;
+  padding-bottom: 4px;
+  width: 50%;
+  text-align: center;
 }
 
-.left-message{
-    text-align: left;
-  }
+// h3{
+//     width: 100%;
+//     margin: 10px auto;
+//     text-align: center;
+// }
+
+// .left-message{
+//     text-align: left;
+//   }
   
-.right-message{
-    text-align: right;
+// .right-message{
+//     text-align: right;
+//   }
+
+  /* 全体 */
+.sb-box {
+  position: relative;
+  overflow: hidden;
+}
+/* アイコン画像 */
+.icon-img {
+  position: absolute;
+  overflow: hidden;
+  top: 0; /* 画像の位置を上から0に */
+  width: 80px; /* 画像の幅 */
+  height: 80px; /* 画像の高さ */
+}
+/* アイコン画像（左） */
+.icon-img-left {
+  left: 5px; /* 画像の位置を左から0に */
+}
+/* アイコン画像（右） */
+.icon-img-right {
+  right: 5px; /* 画像の位置を右から0に */
+}
+/* アイコン画像 */
+.icon-img{
+  border-radius: 50%; /* 画像を丸く表示する */
+  border: 2px solid #eee; /* 画像の縁取りの太さとカラー */
+}
+/* アイコンネーム */
+.icon-name {
+  position: absolute;
+  width: 80px; /* ネームの最大幅を画像と同じに */
+  text-align: center; /* ネームの位置をセンターに */
+  top: 83px; /* ネームの位置を上から83に */
+  color: #777; /* ネームのカラー */
+  font-size: 10px; /* ネームのフォントサイズ */
+}
+/* アイコンネーム（左） */
+.icon-name-left {
+  left: 5px; /* ネームの位置を左から0に */
+}
+/* アイコンネーム（右） */
+.icon-name-right {
+  right: 5px; /* ネームの位置を右から0に */
+}
+/* 吹き出し */
+.sb-side {
+  position: relative;
+  float: left;
+  margin: 0 105px 40px 105px; /* 吹き出しの上下左右の余白 */
+}
+.sb-side-right {
+  float: right;
+}
+/* 吹き出し内のテキスト */
+.sb-txt {
+  position: relative;
+  border: 2px solid #eee; /* 吹き出しの縁取りの太さとカラー */
+  border-radius: 6px; /* 吹き出しを角丸に */
+  background: #fff; /* 吹き出しの背景色 */
+  color: #333; /* 吹き出し内のテキストのカラー */
+  font-size: 15px; /* 吹き出し内のフォントサイズ */
+  line-height: 1.7; /* 吹き出し内のテキストが2行以上になった時の行間 */
+  padding: 18px; /* 吹き出し内の上下左右の余白 */
+}
+.sb-txt > p:last-of-type {
+  padding-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにpadding-bottomをつけない */
+  margin-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにmargin-bottomをつけない */
+}
+/* 吹き出しの三角 */
+.sb-txt:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 16px; /* 吹き出し内の三角の位置 */
+  z-index: 3;
+}
+.sb-txt:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 15px; /* beforeより-1px */
+  z-index: 2; /* beforeより-1 */
+}
+/* 吹き出しの三角（左） */
+.sb-txt-left:before {
+  left: -7px;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent #fff transparent transparent; /* 背景色と同じカラーに */
+}
+.sb-txt-left:after {
+  left: -10px; /* beforeより-3px */
+  border-width: 8px 10px 8px 0; /* beforeより上下+1px */
+  border-color: transparent #eee transparent transparent; /* 縁取りと同じカラーに */
+}
+/* 吹き出しの三角（右） */
+.sb-txt-right:before {
+  right: -7px;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent #fff; /* 背景色と同じカラーに */
+}
+.sb-txt-right:after {
+  right: -10px; /* beforeより-3px */
+  border-width: 8px 0 8px 10px; /* beforeより上下+1px */
+  border-color: transparent transparent transparent #eee; /* 縁取りと同じカラーに */
+}
+
+/* 767px（iPad）以下 */
+
+@media (max-width: 767px) {
+  /* アイコン画像 */
+  .icon-img {
+    width: 60px; /* 画像の幅を-20px */
+    height: 60px; /* 画像の高さを-20px */
   }
+  /* アイコンネーム */
+  .icon-name {
+    width: 60px; /* 画像の幅に合わせて-20px */
+    top: 62px; /* ネームの位置を上から62に */
+    font-size: 9px; /* ネームのフォントサイズを-1px */
+  }
+  /* 吹き出し（左） */
+  .sb-side-left {
+    margin: 0 0 30px 78px; /* 吹き出し（左）の上下左右の余白を狭く */
+  }
+  /* 吹き出し（右） */
+  .sb-side-right {
+    margin: 0 78px 30px 0; /* 吹き出し（右）の上下左右の余白を狭く */
+  }
+  /* 吹き出し内のテキスト */
+  .sb-txt {
+    padding: 12px; /* 吹き出し内の上下左右の余白を-6px */
+  }
+}
+
+.send {
+  z-index: 20;
+  position: fixed;
+  top: 90%;
+  background-color:#eee;/*タイムラインの色と同じにする*/
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  height: 48px;
+  padding-left: 30px;
+  width: 50%;
+}
+textarea#body.send-message{
+      width: 85%;
+      height: 46px;
+      padding: 10px 6px 0px 6px;/*文字がテキストエリアの中心になる様に隙間調整*/
+      border: 1px solid #ccc;
+      border-radius: 4px;/*角丸*/
+      text-align: left;/*文字を左寄せ*/
+      box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2) inset;/*内側に影を入れてテキストエリアらしくした*/
+  }
+button.send-btn {
+  position: absolute;
+  top: -12%;
+  left: 88%;
+  width: 72px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 3em;
+  color: rgb(13, 13, 13);
+  font-weight: bold;
+  text-align: center;/*文字をボタン中央に表示*/
+  border-radius: 4px;/*角丸*/
+  width: 20px;
+  outline: none;
+}
+button.send-btn:hover {
+  color: rgb(0, 169, 224); /*マウスポインタを当てた時にアクティブな色になる*/
+  // cursor: pointer;/*マウスポインタを当てた時に、カーソルが指の形になる*/
+}
+.chat-fotter{
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  z-index: 0;
+  position: fixed;
+  top: 90%;
+}
